@@ -12,3 +12,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: Update HTML
+        run: |
+          sed -i '/<\/body>/i <p>Updated by ${{ github.actor }} on '"$(date)"'</p>' index.html
